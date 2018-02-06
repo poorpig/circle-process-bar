@@ -1,0 +1,22 @@
+{
+  "name": "circle-process-bar",
+  "version": "1.0.0",
+  "description": "a javacript lib for creating circular progress bar ",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist&&gulp"
+  },
+  "author": "wuming",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^7.2.5",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-postcss": "^7.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-babel": "^7.0.1"
+  }
+}
