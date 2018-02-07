@@ -7,7 +7,10 @@
         bgColor:"#f8f8f8",
         percent: 0,
         fontColor:"#999",
-        fontSize:14
+        fontSize:14,
+        format:percent=>{
+            return percent * 100 + "%";;
+        }
     }
 
     function main(option) {
@@ -64,8 +67,8 @@
 
 
     function createInfoDom(option) {
-        const text = option.percent * 100 + "%";
-        const $infoDom = $("<div class=\"circle-progress-info\">" + text + "</div>");
+        const text = option.format(option.percent);
+        const $infoDom = $("<div class=\"circle-progress-info\">" + text+ "</div>");
 
         $infoDom.css({
             "line-height":option.width+"px",

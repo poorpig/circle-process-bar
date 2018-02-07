@@ -16,7 +16,10 @@
     <script src="./js/circleProcessBar.js"></script>
     <script>
         document.getElementById("test-wrapper").innerHTML = circleProcessBar({
-            percent:0.5
+            percent:0.5,
+            format:function(percent){
+                return "进度："+percent
+            }
         });
     </script>
 
