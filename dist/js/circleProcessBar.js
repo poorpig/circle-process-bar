@@ -12,27 +12,42 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         bgColor: "#f8f8f8",
         percent: 0,
         fontColor: "#999",
-        fontSize: 14
+        fontSize: "14px",
+        format: function format(percent) {
+            return percent * 100 + "%";
+        },
+        footer: function footer(percent) {
+            return "";
+        }
     };
 
     function main(option) {
         option = $.extend({}, defaultOption, option);
         if ((typeof option === "undefined" ? "undefined" : _typeof(option)) === 'object' || option === undefined) {
-            var $mainDom = createMainDom(option);
+            var $circleDom = createCircleDom(option);
             var $innerDom = createInnerDom(option);
             var $outerDom = createOuterDom(option);
             var $infoDom = createInfoDom(option);
-            $mainDom.append($innerDom).append($outerDom).append($infoDom);
+            $circleDom.append($innerDom).append($outerDom).append($infoDom);
 
-            return "<div class=\"circle-progress\" style=\"width:" + option.width + "px;height:" + option.width + "px;\">" + $mainDom.html() + "</div>";
+            var $mainDom = $("<div class=\"circle-progress\"></div>").append($circleDom);
+            var htmlStr = "<div class=\"circle-progress\">" + $mainDom.html() + createFooterHtml(option) + "</div>";
+            return htmlStr;
         } else {
             console.error('circleProcessBar参数不合法');
             return '';
         }
     }
 
-    function createMainDom(option) {
-        return $("<div class='circle-progress'></div>");
+    function createCircleDom(option) {
+        var $circleDom = $("<div class='circle-progress-body'></div>");
+
+        $circleDom.css({
+            "width": option.width + "px",
+            "height": option.width + "px"
+        });
+
+        return $circleDom;
     }
 
     function createInnerDom(option) {
@@ -58,7 +73,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var $outerDom = $("<div class=\"circle-progress-outer\"></div>");
 
         $outerDom.css({
-            "border-width": option.strokeWidth + "px",
+            "border-width": option.strokeWidth,
             "border-color": option.bgColor
         });
 
@@ -66,7 +81,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }
 
     function createInfoDom(option) {
-        var text = option.percent * 100 + "%";
+        var text = option.format(option.percent);
         var $infoDom = $("<div class=\"circle-progress-info\">" + text + "</div>");
 
         $infoDom.css({
@@ -76,6 +91,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         });
 
         return $infoDom;
+    }
+
+    function createFooterHtml(option) {
+        return "<div class=\"circle-progress-footer\">" + option.footer() + "</div>";
     }
 
     global.circleProcessBar = main;

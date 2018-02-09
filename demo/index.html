@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>loading</title>
+    <link rel="stylesheet" href="../dist/css/circleProcessBar.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        .demo-wrapper {
+            display: flex;
+            padding: 20px;
+        }
+
+        .demo-wrapper-left {
+            flex: 0 0 180px;
+        }
+
+        .demo-wrapper-right {
+            flex: 1;
+            padding-left: 20px;
+        }
+
+        .nav-slider {
+            position: sticky;
+            left: 0;
+            top: 10px;
+        }
+
+        .code {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="demo-wrapper">
+        <div class="demo-wrapper-left">
+            <nav class="nav-slider">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation" class="active">
+                        <a href="#basic">基础用法</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#size">自定义大小</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#color">自定义颜色</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#text">文本颜色和字体大小</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#format">文本格式化</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#footer">底部拓展</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="demo-wrapper-right">
+            <div id="basic">
+                <h2>基础用法</h2>
+                <div class="demo-1"></div>
+                <div class="code">
+                    <pre>
+/**
+* percent取值范围：0~1
+*/                        
+var htmlStr_demo1=circleProcessBar({
+                percent: 0.7
+            });
+                        
+$(".demo-1").html(htmlStr_demo1);
+                    </pre>
+                </div>
+            </div>
+            <div id="size">
+                <h2>自定义大小</h2>
+                <div class="demo-2"></div>
+                <div class="code">
+                    <pre>
+/**
+*控制直径
+*默认100,单位px
+*/
+var htmlStr_demo2=circleProcessBar({
+    percent: 0.7,
+    width:200
+});
+                                        
+$(".demo-2").html(htmlStr_demo2); 
+                    </pre>
+                </div>
+                <div class="demo-3"></div>
+                <div class="code">
+                    <pre>
+/**
+*控制粗细
+*默认6,单位px
+*/
+var htmlStr_demo3=circleProcessBar({
+    percent: 0.7,
+    strokeWidth:10
+    
+});
+                                        
+$(".demo-3").html(htmlStr_demo3);  
+                    </pre>
+                </div>
+            </div>
+            <div id="color">
+                <h2>自定义颜色</h2>
+                <div class="demo-4"></div>
+                <div class="code">
+                    <pre>
+/**
+*控制已加载的颜色
+*默认色值#52c41a
+*/
+var htmlStr_demo4=circleProcessBar({
+    percent: 0.7,
+    strokeColor:"#f44"
+    
+});
+                                        
+$(".demo-4").html(htmlStr_demo4);
+                    </pre>
+                </div>
+                <div class="demo-5"></div>
+                <div class="code">
+                    <pre>
+/**
+*控制未加载的颜色
+*默认色值#f8f8f8
+*/
+var htmlStr_demo5=circleProcessBar({
+    percent: 0.7,
+    bgColor:"#ccc"
+    
+});
+                                        
+$(".demo-5").html(htmlStr_demo5);    
+                    </pre>
+                </div>
+            </div>
+            <div id="text">
+                <h2>文本颜色和字体大小</h2>
+                <div class="demo-6"></div>
+                <div class="code">
+                    <pre>
+/**
+*控制文本颜色和字体大小
+*默认色值#999
+*默认字号14，单位px
+*/
+var htmlStr_demo6=circleProcessBar({
+    percent: 0.7,
+    fontColor:"#000",
+    fontSize:"20px"
+    
+});
+                                        
+$(".demo-6").html(htmlStr_demo6);                         
+                    </pre>
+                </div>
+            </div>
+            <div id="format">
+                <h2>文本格式化</h2>
+                <div class="demo-7"></div>
+                <div class="code">
+                    <pre>
+/**
+*控制文本显示
+*默认格式  <数值>%
+*/
+var htmlStr_demo7=circleProcessBar({
+    percent: 0.7,
+    format: function(percent){
+        return "进度："+percent * 100 + "%";;
+    }
+});
+
+$(".demo-7").html(htmlStr_demo7);                       
+                    </pre>
+                </div>
+                <div class="demo-8"></div>
+                <div class="code">
+                    <pre>
+/**
+*控制100%时的文本显示
+*默认显示 100%
+*/
+var htmlStr_demo8=circleProcessBar({
+    percent: 1,
+    format: function(percent){
+        if(percent===1){        
+            return "<格式化之后的内容>";
+        }
+    }
+});
+
+$(".demo-8").html(htmlStr_demo8);                       
+                    </pre>
+                </div>
+            </div>
+            <div id="footer">
+                <h2>底部拓展</h2>
+                <div class="demo-9"></div>
+                <div class="code">
+                    <pre>
+ var htmlStr_demo9=circleProcessBar({
+    percent: 1,
+    footer: function(percent){
+        return <内容>                  
+    }
+});
+
+$(".demo-9").html(htmlStr_demo9); 
+                    </pre>
+                </div>
+            </div>
+        </div>
+        </main>
+
+    </main>
+
+    <script src="../dist/js/circleProcessBar.js"></script>
+    <script>
+        $(".nav>li>a").on("click", function (e) {
+            $(".nav").find(".active").removeClass("active");
+            $(e.target).parent().addClass("active");
+        });
+
+        //基础用法
+        var htmlStr_demo1 = circleProcessBar({
+            percent: 0.7
+        });
+        $(".demo-1").html(htmlStr_demo1);
+
+        //自定义大小
+        var htmlStr_demo2 = circleProcessBar({
+            percent: 0.7,
+            width: 200
+        });
+        $(".demo-2").html(htmlStr_demo2);
+
+        var htmlStr_demo3 = circleProcessBar({
+            percent: 0.7,
+            strokeWidth: 10
+
+        });
+        $(".demo-3").html(htmlStr_demo3);
+
+        //自定义颜色
+        var htmlStr_demo4 = circleProcessBar({
+            percent: 0.7,
+            strokeColor: "#f44"
+        });
+        $(".demo-4").html(htmlStr_demo4);
+
+        var htmlStr_demo5 = circleProcessBar({
+            percent: 0.7,
+            bgColor: "#ccc"
+
+        });
+        $(".demo-5").html(htmlStr_demo5);
+
+        //文本颜色和字体大小
+        var htmlStr_demo6=circleProcessBar({
+            percent: 0.7,
+            fontColor:"#000",
+            fontSize:"20px"  
+        });                                      
+        $(".demo-6").html(htmlStr_demo6);
+
+        //文本格式化
+        var htmlStr_demo7=circleProcessBar({
+            percent: 0.7,
+            format: function(percent){
+                return "进度："+percent * 100 + "%";;
+            }
+        });
+        $(".demo-7").html(htmlStr_demo7);
+
+        var htmlStr_demo8=circleProcessBar({
+            percent: 1,
+            format: function(percent){
+                if(percent===1){
+                    return "<span class=\"glyphicon glyphicon-ok\" style=\"color:#52c41a;\"></span>";
+                }
+            }
+        });
+        $(".demo-8").html(htmlStr_demo8);  
+        //底部拓展
+        var htmlStr_demo9=circleProcessBar({
+            percent: 1,
+            footer: function(percent){
+               var time=new Date(); 
+               return "<p class=\"text-center\" style=\"line-height:30px;\">"+time.getHours()+":"+time.getMinutes()+":"+time.getSeconds()+"</p>"
+            }
+        });
+        $(".demo-9").html(htmlStr_demo9); 
+    </script>
+
+</body>
+</html>
