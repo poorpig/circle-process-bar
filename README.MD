@@ -9,17 +9,23 @@ https://ruichengping.github.io/circle-process-bar/site/
 
 - jquery
 
+**注意事项：**
+circle-process-bar没有集成jquery,需要自己引入jquery
+
 ## 使用方法
 调用circleProcessBar方法会返回一个生成好的圆形进度条的HTML字符串。
 
-### 引入 
+
+### 用法
+#### 快速上手
+**HTML**
 ```
 //引入css
  <link rel="stylesheet" href="**/circleProcessBar.min.css">
 //引入js
  <script src="**/circleProcessBar.min.js"></script>
 ```
-### 用法
+**JS**
 ```
 circleProcessBar({
             percent: 0.7
@@ -27,6 +33,19 @@ circleProcessBar({
         });
 ```
 
+#### NPM
+
+```
+npm i circle-process-bar --save
+```
+**JS**
+```
+import CircleProcessBar from 'circle-process-bar';
+CircleProcessBar({
+            percent: 0.7
+            ...
+       });
+```
 ### 参数说明
 
 参数 | 是否必填 |类型|默认值 |说明
