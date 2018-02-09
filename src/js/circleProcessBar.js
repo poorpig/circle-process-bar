@@ -1,6 +1,8 @@
-;!(function (global, $) {
-    "use strict";
-
+;!((global,$,factory)=>{
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global.circleProcessBar = factory());
+})(window,jQuery,()=>{
     const defaultOption = {
         width: 100,
         strokeWidth: 6,
@@ -98,6 +100,5 @@
         return "<div class=\"circle-progress-footer\">"+option.footer()+"</div>";
     }
 
-
-    global.circleProcessBar = main;
-})(window, jQuery);
+    return main;
+});

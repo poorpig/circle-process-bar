@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-;!function (global, $) {
-    "use strict";
-
+;!function (global, $, factory) {
+    (typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object' && typeof module !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : global.circleProcessBar = factory();
+}(window, jQuery, function () {
     var defaultOption = {
         width: 100,
         strokeWidth: 6,
@@ -23,7 +23,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     function main(option) {
         option = $.extend({}, defaultOption, option);
-        if ((typeof option === "undefined" ? "undefined" : _typeof(option)) === 'object' || option === undefined) {
+        if ((typeof option === 'undefined' ? 'undefined' : _typeof(option)) === 'object' || option === undefined) {
             var $circleDom = createCircleDom(option);
             var $innerDom = createInnerDom(option);
             var $outerDom = createOuterDom(option);
@@ -97,5 +97,5 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         return "<div class=\"circle-progress-footer\">" + option.footer() + "</div>";
     }
 
-    global.circleProcessBar = main;
-}(window, jQuery);
+    return main;
+});
