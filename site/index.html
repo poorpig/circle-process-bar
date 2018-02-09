@@ -6,36 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>loading</title>
-    <link rel="stylesheet" href="/dist/css/circleProcessBar.css">
+    <link rel="stylesheet" href="/site/lib/circleProcessBar.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
-    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <style>
-        .demo-wrapper {
-            display: flex;
-            padding: 20px;
-        }
-
-        .demo-wrapper-left {
-            flex: 0 0 180px;
-        }
-
-        .demo-wrapper-right {
-            flex: 1;
-            padding-left: 20px;
-        }
-
-        .nav-slider {
-            position: sticky;
-            left: 0;
-            top: 10px;
-        }
-
-        .code {
-            margin-top: 10px;
-        }
-    </style>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
+<style>
+    .demo-wrapper {
+        display: flex;
+        padding: 20px;
+    }
+
+    .demo-wrapper-left {
+        flex: 0 0 180px;
+    }
+
+    .demo-wrapper-right {
+        flex: 1;
+        padding-left: 20px;
+    }
+
+    .nav-slider {
+        position: sticky;
+        left: 0;
+        top: 10px;
+    }
+
+    .code {
+        margin-top: 10px;
+    }
+</style>
 
 <body>
     <main class="demo-wrapper">
@@ -226,7 +226,7 @@ $(".demo-9").html(htmlStr_demo9);
                 </div>
             </div>
         </div>
-        </main>
+    </main>
 
     </main>
 
@@ -272,41 +272,43 @@ $(".demo-9").html(htmlStr_demo9);
         $(".demo-5").html(htmlStr_demo5);
 
         //文本颜色和字体大小
-        var htmlStr_demo6=circleProcessBar({
+        var htmlStr_demo6 = circleProcessBar({
             percent: 0.7,
-            fontColor:"#000",
-            fontSize:"20px"  
-        });                                      
+            fontColor: "#000",
+            fontSize: "20px"
+        });
         $(".demo-6").html(htmlStr_demo6);
 
         //文本格式化
-        var htmlStr_demo7=circleProcessBar({
+        var htmlStr_demo7 = circleProcessBar({
             percent: 0.7,
-            format: function(percent){
-                return "进度："+percent * 100 + "%";;
+            format: function (percent) {
+                return "进度：" + percent * 100 + "%";;
             }
         });
         $(".demo-7").html(htmlStr_demo7);
 
-        var htmlStr_demo8=circleProcessBar({
+        var htmlStr_demo8 = circleProcessBar({
             percent: 1,
-            format: function(percent){
-                if(percent===1){
+            format: function (percent) {
+                if (percent === 1) {
                     return "<span class=\"glyphicon glyphicon-ok\" style=\"color:#52c41a;\"></span>";
                 }
             }
         });
-        $(".demo-8").html(htmlStr_demo8);  
+        $(".demo-8").html(htmlStr_demo8);
         //底部拓展
-        var htmlStr_demo9=circleProcessBar({
+        var htmlStr_demo9 = circleProcessBar({
             percent: 1,
-            footer: function(percent){
-               var time=new Date(); 
-               return "<p class=\"text-center\" style=\"line-height:30px;\">"+time.getHours()+":"+time.getMinutes()+":"+time.getSeconds()+"</p>"
+            footer: function (percent) {
+                var time = new Date();
+                return "<p class=\"text-center\" style=\"line-height:30px;\">" + time.getHours() + ":" +
+                    time.getMinutes() + ":" + time.getSeconds() + "</p>"
             }
         });
-        $(".demo-9").html(htmlStr_demo9); 
+        $(".demo-9").html(htmlStr_demo9);
     </script>
 
 </body>
+
 </html>
