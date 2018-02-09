@@ -19,11 +19,11 @@ https://ruichengping.github.io/circle-process-bar/site/
 //引入js
  <script src="**/circleProcessBar.min.js"></script>
 ```
-### 基本用法
+### 用法
 ```
 circleProcessBar({
             percent: 0.7
-            **
+            ...
         });
 ```
 
